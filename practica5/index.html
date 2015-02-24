@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Practica 5</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function agrgarFilas()
+		{
+			var table = document.getElementById("mitabla");
+		  	{
+			  var row = table.insertRow(0);
+			  row.insertCell(0).innerHTML = "juan";
+			  row.insertCell(0).innerHTML = "campos";
+			  row.insertCell(0).innerHTML = "54";
+			  row.insertCell(0).innerHTML = "masculino";
+		  	}
+		}
+	</script>
+	<input type="button" value="agrgar filas" id="btnAgrgar" onclick="agrgarFilas()">
+	<table id="mitabla" border="2">
+		<tr>
+			<td>Nombre</td>
+			<td>Apellido</td>
+			<td>edad</td>
+			<td>genero</td>
+		</tr>
+	</table>
+</body>
+</html>
