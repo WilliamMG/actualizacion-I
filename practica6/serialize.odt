@@ -1,0 +1,23 @@
+﻿Serialize();
+
+Para que un programa java pueda convertir un objeto en un montón de bytes y pueda luego recuperarlo, el objeto necesita ser Serializable. Al poder convertir el objeto a bytes, ese objeto se puede enviar a través de red, guardarlo en un fichero, y después reconstruirlo al otra lado de la red, leerlo del fichero,....
+
+En realidad, se llama "serializar un objeto" al proceso de convertirlo a bytes, para poder enviarlo por una red, y reconstruirlo luego a partir de esos bytes.
+
+A veces podemos necesitar que se haga algo especial en el momento de serializarlo, bien al construirlo a bytes, bien al recibirlo. Por ello java nos permite hacerlo. Basta con hacer que nuestro objeto defina uno o los dos métodos siguientes: 
+
+ejemplo en java:
+De objeto a byte[]
+
+ByteArrayOutputStream bs= new ByteArrayOutputStream();
+ObjectOutputStream os = new ObjectOutputStream (bs);
+os.writeObject(unObjetoSerializable);  // this es de tipo DatoUdp
+os.close();
+byte[] bytes =  bs.toByteArray(); // devuelve byte[]
+
+De byte[] a objeto
+
+ByteArrayInputStream bs= new ByteArrayInputStream(bytes); // bytes es el byte[]
+ObjectInputStream is = new ObjectInputStream(bs);
+ClaseSerializable unObjetoSerializable = (ClaseSerializable)is.readObject();//listo en un convertido en un objeto denuevo
+is.close();
