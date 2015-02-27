@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Practica 4</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<script src="jquery.js"></script>
+
+</head>
+<body>
+	<script>
+		function loadTable(){
+			$.ajax({
+				dataType: "json",
+				type:"post",
+				url:"listaItem.php",
+				success: function(data){
+					$('#d_main').children().next().append("<table>");
+					$.each(data, function(index, objeto){
+						$('#d_main').children().next().append("<tr>"+"<td>"+objeto.nombre+"</td>"+"<td>"+objeto.codigo+"</td></tr>");
+					});
+					$('#d_main').children().next().append("</table>");
+					$('#d_main').children().next().next().empty();
+				}
+			});
+
+			for (i=0, j=1, k=0;k<10;i=j,j=x,k++){
+				x=i+j;
+				console.log(x);
+			}
+		}
+	</script>
+
+	<div id="d_main">
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+	</div>
+	<button type="button" onclick="loadTable()">Load table</button>
+</body>
+</html>
